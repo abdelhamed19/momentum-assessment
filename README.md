@@ -47,3 +47,7 @@ A simple RESTful API built with **Laravel** and **Sanctum** for handling user au
    ```bash
    git clone https://github.com/abdelhamed19/momentum-assessment.git
    cd momentum-assessment
+   composer install
+   cp .env.example .env
+   php artisan key:generate
+   php artisan migrate:seed

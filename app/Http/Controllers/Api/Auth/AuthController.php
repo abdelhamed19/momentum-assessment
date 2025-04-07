@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\Auth\AuthResource;
 use App\Http\Requests\Api\Auth\LoginRequest;
 use App\Http\Requests\Api\Auth\RegisterRequest;
+use App\Http\Resources\Auth\UserResource;
 
 class AuthController extends Controller
 {
@@ -68,6 +69,22 @@ class AuthController extends Controller
             DB::rollBack();
             return $this->error(
                 'User creation failed',
+                400
+            );
+        }
+    }
+    public function profile()
+    {
+        try {
+            $user = auth()->user();
+            return $this->success(
+                'User profile retrieved successfully',
+                200,
+                UserResource::make($user)
+            );
+        } catch (\Exception $e) {
+            return $this->error(
+                'Failed to retrieve user profile',
                 400
             );
         }
