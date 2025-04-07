@@ -50,4 +50,4 @@ A simple RESTful API built with **Laravel** and **Sanctum** for handling user au
    composer install
    cp .env.example .env
    php artisan key:generate
-   php artisan migrate:seed
+   php artisan migrate --seed
