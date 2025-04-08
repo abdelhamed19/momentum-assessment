@@ -35,9 +35,9 @@ A simple RESTful API built with **Laravel** and **Sanctum** for handling user au
 ## 🛡️ API Protection
 
 - All post-related routes are protected using **Laravel Sanctum**.
+- Only the **owner** of a post can modify or delete it.
 - Middleware checks ensure:
   - Only **authenticated users** can create, update, and delete posts.
-  - Only the **owner** of a post can modify or delete it.
 
 ---
 
